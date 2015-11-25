@@ -3,6 +3,7 @@
   "type": "symfony-bundle",
   "description": "Rigid search bundle for Symfony2",
   "keywords": ["search", "symfony2", "bundle"],
+  "license": "MIT",
   "autoload": {
     "psr-4": { "Demontpx\\RigidSearchBundle\\": "src/" }
   },
