@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    {% if pagination|length == 0 %}
+        <div class="alert alert-info">
+            {{ 'demontpx_rigid_search.no_items_found'|trans }}
+        </div>
+    {% endif %}
+
+    <div class="search-result-list">
+    {% for result in pagination %}
+        <div class="result-item">
+            <h3 class="result-title">
+                <a href="{{ app.request.baseUrl }}{{ result.document.url }}">{{ result.document.title }}</a>
+            </h3>
+            <div class="result-url">
+                <a href="{{ app.request.baseUrl }}{{ result.document.url }}">{{ result.document.url }}</a>
+            </div>
+            <div class="result-text">{{ result.document.description|nl2br }}</div>
+            <div class="result-score">{{ result.score }}</div>
+        </div>
+    {% endfor %}
+
+        <div class="paginator">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}
