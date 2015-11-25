@@ -46,7 +46,7 @@ class OpenSearchDescriptionProvider
     {
         $request = $this->requestStack->getMasterRequest();
 
-        $url = $request->getSchemeAndHttpHost() . $this->router->generate('demontpx_search_result') . '?query={searchTerms}';
+        $url = $request->getSchemeAndHttpHost() . $this->router->generate('demontpx_rigid_search_result') . '?query={searchTerms}';
 
         $xml = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><OpenSearchDescription  xmlns="http://a9.com/-/spec/opensearch/1.1/"/>');
 
