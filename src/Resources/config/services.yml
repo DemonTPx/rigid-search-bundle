@@ -2,8 +2,8 @@ services:
     demontpx_rigid_search.search_manager:
         class: Demontpx\RigidSearchBundle\Search\SearchManager
         arguments:
-            - @demontpx_rigid_search.index.orm
-            - @demontpx_rigid_search.item_search_manager_factory
+            - "@demontpx_rigid_search.index.orm"
+            - "@demontpx_rigid_search.item_search_manager_factory"
 
     demontpx_rigid_search.item_search_manager_factory:
         class: Demontpx\RigidSearchBundle\Search\ItemSearchManagerFactory
@@ -11,39 +11,39 @@ services:
     demontpx_rigid_search.index.orm:
         class: Demontpx\RigidSearchBundle\Search\Index\OrmIndex
         arguments:
-            - @doctrine.orm.entity_manager
-            - @demontpx_rigid_search.repository.document
-            - @demontpx_rigid_search.repository.field
+            - "@doctrine.orm.entity_manager"
+            - "@demontpx_rigid_search.repository.document"
+            - "@demontpx_rigid_search.repository.field"
 
     demontpx_rigid_search.processor.normalize_route_processor:
         class: Demontpx\RigidSearchBundle\Search\Processor\NormalizeRouteProcessor
         arguments:
-            - @router.request_context
+            - "@router.request_context"
         tags:
             - { name: demontpx_rigid_search.document_processor }
 
     demontpx_rigid_search.open_search_description_provider:
         class: Demontpx\RigidSearchBundle\Search\OpenSearchDescriptionProvider
         arguments:
-            - @request_stack
-            - @router
-            - @demontpx_rigid_search.open_search.configuration
+            - "@request_stack"
+            - "@router"
+            - "@demontpx_rigid_search.open_search.configuration"
 
     demontpx_rigid_search.pagination.subscriber:
         class: Demontpx\RigidSearchBundle\Pagination\SearchQueryPaginationSubscriber
         arguments:
-            - @demontpx_rigid_search.search_manager
+            - "@demontpx_rigid_search.search_manager"
         tags:
             - { name: knp_paginator.subscriber }
 
     demontpx_rigid_search.repository.document:
         class: Demontpx\RigidSearchBundle\Repository\DocumentRepository
-        factory: [@doctrine.orm.entity_manager, getRepository]
+        factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments: [DemontpxRigidSearchBundle:Document]
 
     demontpx_rigid_search.repository.field:
         class: Demontpx\RigidSearchBundle\Repository\FieldRepository
-        factory: [@doctrine.orm.entity_manager, getRepository]
+        factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments: [DemontpxRigidSearchBundle:Field]
 
     demontpx_rigid_search.form_type.query:
@@ -54,20 +54,20 @@ services:
     demontpx_rigid_search.command.debug:
         class: Demontpx\RigidSearchBundle\Command\DebugCommand
         arguments:
-            - @demontpx_rigid_search.item_search_manager_factory
+            - "@demontpx_rigid_search.item_search_manager_factory"
         tags:
             - { name: console.command }
 
     demontpx_rigid_search.command.reindex_all:
         class: Demontpx\RigidSearchBundle\Command\ReindexAllCommand
         arguments:
-            - @demontpx_rigid_search.search_manager
+            - "@demontpx_rigid_search.search_manager"
         tags:
             - { name: console.command }
 
     demontpx_rigid_search.command.reindex:
         class: Demontpx\RigidSearchBundle\Command\ReindexCommand
         arguments:
-            - @demontpx_rigid_search.search_manager
+            - "@demontpx_rigid_search.search_manager"
         tags:
             - { name: console.command }
