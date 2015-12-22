@@ -20,20 +20,21 @@ new Demontpx\RigidSearchBundle\DemontpxRigidSearchBundle()
 
 ## Usage: Making an entity searchable
 
-The first step to make an entity searchable, is to add the `SearchableItemInterface` to it. For example:
+Lets say we want to index a `NewsItem` entity:
 
 ```php
-class NewsItem implements SearchableItemInterface {
-    public function getId() {
-        return $this->id;
-    }
+class NewsItem {
+    public function getId() { return $this->id; }
+    public function getTitle() { return $this->title; }
+    // ...
+}
 ```
 
-Step two is to create a new class which implements the `SearchDocumentExtractorInterface`. In here you define in which fields there needs to be searched and how important they are in relation to each other.
+The first step is to create a new class which implements the `SearchDocumentExtractorInterface`. In here you define in which fields there needs to be searched and how important they are in relation to each other.
 
 ```php
 class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
-    public function extractDocument(SearchableItemInterface $item) {
+    public function extractDocument($item) {
         // $item should be of the type NewsItem
         
         // The title, description and URL you put in here are only used for display and link to the item
@@ -49,10 +50,14 @@ class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
         
         return $document;
     }
+    
+    public function extractId($item) {
+        return $item->getId();
+    }
 }
 ```
 
-Step three is to create another new class which implements the `ItemSearchManagerInterface`:
+Step two is to create another new class which implements the `ItemSearchManagerInterface`:
 
 ```php
 class NewsItemSearchManager implements ItemSearchManagerInterface {

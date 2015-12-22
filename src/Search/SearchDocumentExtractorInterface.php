@@ -13,9 +13,16 @@ use Demontpx\RigidSearchBundle\Model\Document;
 interface SearchDocumentExtractorInterface
 {
     /**
-     * @param SearchableItemInterface $item
+     * @param object $item
      *
      * @return Document
      */
-    public function extractDocument(SearchableItemInterface $item);
+    public function extractDocument($item);
+
+    /**
+     * @param object $item
+     *
+     * @return int
+     */
+    public function extractId($item);
 }

@@ -42,9 +42,9 @@ class SearchManager
     }
 
     /**
-     * @param SearchableItemInterface $item
+     * @param object $item
      */
-    public function index(SearchableItemInterface $item)
+    public function index($item)
     {
         $manager = $this->itemManagerFactory->getByClass(get_class($item));
         $documentExtractor = $manager->getDocumentExtractor();
@@ -59,14 +59,18 @@ class SearchManager
     }
 
     /**
-     * @param SearchableItemInterface $item
+     * @param object $item
      */
-    public function remove(SearchableItemInterface $item)
+    public function remove($item)
     {
         $manager = $this->itemManagerFactory->getByClass(get_class($item));
         $this->index->remove($manager->getType(), $item->getId());
     }
 
+    /**
+     * @param string $class
+     * @param int    $id
+     */
     public function removeByClassAndId($class, $id)
     {
         $manager = $this->itemManagerFactory->getByClass($class);
