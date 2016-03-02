@@ -11,7 +11,7 @@
     "psr-4": { "Demontpx\\RigidSearchBundle\\": "tests/" }
   },
   "require": {
-    "php": ">=5.5",
+    "php": "^5.5|^7.0",
     "demontpx/util-bundle": "^0.1.2",
     "sensio/framework-extra-bundle": "^3.0",
     "knplabs/knp-paginator-bundle": "^2.5"
