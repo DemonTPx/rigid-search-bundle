@@ -2,6 +2,7 @@
 
 namespace Demontpx\RigidSearchBundle\Controller;
 
+use Demontpx\RigidSearchBundle\Form\QueryType;
 use Demontpx\RigidSearchBundle\Model\SearchQuery;
 use Demontpx\UtilBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -26,7 +27,7 @@ class SearchController extends BaseController
      */
     public function searchFormAction(Request $request)
     {
-        $form = $this->createForm('query', $request->query->get('query', ''), [
+        $form = $this->createForm(QueryType::class, $request->query->get('query', ''), [
             'action' => $this->generateUrl('demontpx_rigid_search_result'),
         ]);
 

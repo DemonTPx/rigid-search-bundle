@@ -3,6 +3,7 @@
 namespace Demontpx\RigidSearchBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -25,6 +26,6 @@ class QueryType extends AbstractType
 
     public function getParent()
     {
-        return 'search';
+        return SearchType::class;
     }
 }
