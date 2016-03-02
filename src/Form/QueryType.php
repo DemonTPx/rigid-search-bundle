@@ -27,9 +27,4 @@ class QueryType extends AbstractType
     {
         return 'search';
     }
-
-    public function getName()
-    {
-        return 'query';
-    }
 }

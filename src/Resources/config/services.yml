@@ -49,7 +49,7 @@ services:
     demontpx_rigid_search.form_type.query:
         class: Demontpx\RigidSearchBundle\Form\QueryType
         tags:
-            - { name: form.type, alias: query }
+            - { name: form.type }
 
     demontpx_rigid_search.command.debug:
         class: Demontpx\RigidSearchBundle\Command\DebugCommand
