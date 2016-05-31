@@ -69,11 +69,19 @@ class OrmIndex implements IndexInterface
 
     public function count(array $tokenList)
     {
+        if (count($tokenList) == 0) {
+            return 0;
+        }
+
         return $this->fieldRepository->count($tokenList);
     }
 
     public function search(array $tokenList, $offset = 0, $limit = 10)
     {
+        if (count($tokenList) == 0) {
+            return [];
+        }
+
         $searchResultList = $this->fieldRepository->search($tokenList, $offset, $limit);
 
         $resultList = [];
