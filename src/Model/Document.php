@@ -21,6 +21,11 @@ class Document
     protected $description;
 
     /**
+     * @var \DateTime
+     */
+    protected $publishDate;
+
+    /**
      * @var string
      */
     protected $url;
@@ -31,15 +36,23 @@ class Document
     protected $fieldList;
 
     /**
-     * @param string  $title
-     * @param string  $description
-     * @param string  $url
-     * @param Field[] $fieldList
+     * @param string    $title
+     * @param string    $description
+     * @param string    $url
+     * @param Field[]   $fieldList
+     * @param \DateTime $publishDate
      */
-    public function __construct($title, $description, $url, array $fieldList = [])
+    public function __construct(
+        $title,
+        $description,
+        \DateTime $publishDate = null,
+        $url,
+        array $fieldList = []
+    )
     {
         $this->title = $title;
         $this->description = $description;
+        $this->publishDate = $publishDate;
         $this->url = $url;
         $this->fieldList = $fieldList;
     }
@@ -74,6 +87,22 @@ class Document
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPublishDate()
+    {
+        return $this->publishDate;
+    }
+
+    /**
+     * @param \DateTime $publishDate
+     */
+    public function setPublishDate(\DateTime $publishDate = null)
+    {
+        $this->publishDate = $publishDate;
     }
 
     /**

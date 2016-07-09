@@ -66,16 +66,32 @@ class Document extends BaseDocument
     protected $fieldList;
 
     /**
-     * @param string  $type
-     * @param int     $typeId
-     * @param string  $title
-     * @param string  $description
-     * @param string  $url
-     * @param Field[] $fieldList
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
      */
-    public function __construct($type, $typeId, $title, $description, $url, $fieldList = [])
+    protected $publishDate;
+
+    /**
+     * @param string    $type
+     * @param int       $typeId
+     * @param string    $title
+     * @param string    $description
+     * @param \DateTime $publishDate
+     * @param string    $url
+     * @param Field[]   $fieldList
+     */
+    public function __construct(
+        $type,
+        $typeId,
+        $title,
+        $description,
+        \DateTime $publishDate,
+        $url,
+        $fieldList = []
+    )
     {
-        parent::__construct($title, $description, $url, []);
+        parent::__construct($title, $description, $publishDate, $url, []);
 
         $this->type = $type;
         $this->typeId = $typeId;
@@ -94,7 +110,15 @@ class Document extends BaseDocument
      */
     public static function fromDocument($type, $typeId, BaseDocument $document)
     {
-        return new self($type, $typeId, $document->title, $document->description, $document->url, $document->fieldList);
+        return new self(
+            $type,
+            $typeId,
+            $document->title,
+            $document->description,
+            $document->publishDate,
+            $document->url,
+            $document->fieldList
+        );
     }
 
     /**
