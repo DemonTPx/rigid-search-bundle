@@ -39,7 +39,12 @@ class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
         
         // The title, description and URL you put in here are only used for display and link to the item
         // They are not searchable unless you add them as fields as well (see below!)
-        $document = new Document($item->getTitle(), $item->getDescription(), $this->generateUrl($item));
+        $document = new Document(
+            $item->getTitle(),
+            $item->getDescription(),
+            $item->getPublishDate(),
+            $this->generateUrl($item)
+        );
         
         // These are the fields on which items can be found
         // The last argument are the weight values, which can be any relative number 
