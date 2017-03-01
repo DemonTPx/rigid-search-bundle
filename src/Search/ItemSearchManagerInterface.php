@@ -15,7 +15,7 @@ interface ItemSearchManagerInterface
      *
      * @return string
      */
-    public function getClass();
+    public function getClass(): string;
 
     /**
      * Returns the short type name of the type of the items which is used to index and locate the items.
@@ -23,15 +23,9 @@ interface ItemSearchManagerInterface
      *
      * @return string
      */
-    public function getType();
+    public function getType(): string;
 
-    /**
-     * @return SearchDocumentExtractorInterface
-     */
-    public function getDocumentExtractor();
+    public function getDocumentExtractor(): SearchDocumentExtractorInterface;
 
-    /**
-     * @return SearchableItemInterface[]
-     */
-    public function fetchAll();
+    public function fetchAll(): array;
 }

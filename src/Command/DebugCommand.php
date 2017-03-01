@@ -18,9 +18,6 @@ class DebugCommand extends Command
     /** @var ItemSearchManagerFactory */
     private $factory;
 
-    /**
-     * @param ItemSearchManagerFactory $factory
-     */
     public function __construct(ItemSearchManagerFactory $factory)
     {
         parent::__construct();

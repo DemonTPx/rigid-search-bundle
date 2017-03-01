@@ -12,11 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class DocumentRepository extends EntityRepository
 {
-    /**
-     * @param string $type
-     * @param int    $typeId
-     */
-    public function delete($type, $typeId)
+    public function delete(string $type, int $typeId): void
     {
         $queryBuilder = $this->createQueryBuilder('d');
         $queryBuilder->delete()
@@ -28,10 +24,7 @@ class DocumentRepository extends EntityRepository
         ]);
     }
 
-    /**
-     * @param string $type
-     */
-    public function truncateType($type)
+    public function truncateType(string $type): void
     {
         $queryBuilder = $this->createQueryBuilder('d');
         $queryBuilder->delete()
@@ -40,7 +33,7 @@ class DocumentRepository extends EntityRepository
         $queryBuilder->getQuery()->execute(['type' => $type]);
     }
 
-    public function truncate()
+    public function truncate(): void
     {
         $queryBuilder = $this->createQueryBuilder('d');
         $queryBuilder->delete();

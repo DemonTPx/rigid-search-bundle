@@ -23,20 +23,13 @@ class SearchManager
     /** @var ProcessorInterface[] */
     private $documentProcessorList = [];
 
-    /**
-     * @param IndexInterface           $index
-     * @param ItemSearchManagerFactory $itemManagerFactory
-     */
     public function __construct(IndexInterface $index, ItemSearchManagerFactory $itemManagerFactory)
     {
         $this->index = $index;
         $this->itemManagerFactory = $itemManagerFactory;
     }
 
-    /**
-     * @param ProcessorInterface $processor
-     */
-    public function registerProcessor(ProcessorInterface $processor)
+    public function registerProcessor(ProcessorInterface $processor): void
     {
         $this->documentProcessorList[] = $processor;
     }
@@ -44,7 +37,7 @@ class SearchManager
     /**
      * @param object $item
      */
-    public function index($item)
+    public function index($item): void
     {
         $manager = $this->itemManagerFactory->getByClass(get_class($item));
         $documentExtractor = $manager->getDocumentExtractor();
@@ -61,28 +54,19 @@ class SearchManager
     /**
      * @param object $item
      */
-    public function remove($item)
+    public function remove($item): void
     {
         $manager = $this->itemManagerFactory->getByClass(get_class($item));
         $this->index->remove($manager->getType(), $item->getId());
     }
 
-    /**
-     * @param string $class
-     * @param int    $id
-     */
-    public function removeByClassAndId($class, $id)
+    public function removeByClassAndId(string $class, int $id): void
     {
         $manager = $this->itemManagerFactory->getByClass($class);
         $this->index->remove($manager->getType(), $id);
     }
 
-    /**
-     * @param string $query
-     *
-     * @return int
-     */
-    public function count($query)
+    public function count(string $query): int
     {
         $tokenList = $this->createTokenList($query);
 
@@ -96,18 +80,18 @@ class SearchManager
      *
      * @return ScoredDocument[]
      */
-    public function search($query, $offset = 0, $limit = 10)
+    public function search(string $query, int $offset = 0, int $limit = 10): array
     {
         $tokenList = $this->createTokenList($query);
 
         return $this->index->search($tokenList, $offset, $limit);
     }
 
-    private function createTokenList($query)
+    private function createTokenList(string $query): array
     {
         $tokenList = explode(' ', $query);
 
-        $tokenList = array_filter($tokenList, function($v) {
+        $tokenList = array_filter($tokenList, function ($v) {
             return ! empty($v);
         });
 
@@ -118,20 +102,20 @@ class SearchManager
         return $tokenList;
     }
 
-    public function reindex($type)
+    public function reindex(string $type): void
     {
         $manager = $this->itemManagerFactory->getByType($type);
         $this->reindexByItemManager($manager);
     }
 
-    public function reindexAll()
+    public function reindexAll(): void
     {
         foreach ($this->itemManagerFactory->getAll() as $manager) {
             $this->reindexByItemManager($manager);
         }
     }
 
-    private function reindexByItemManager(ItemSearchManagerInterface $manager)
+    private function reindexByItemManager(ItemSearchManagerInterface $manager): void
     {
         $this->index->removeType($manager->getType());
 

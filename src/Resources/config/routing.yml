@@ -1,3 +1,3 @@
 demontpx_rigid_search:
-  resource: "@DemontpxRigidSearchBundle/Controller/SearchController.php"
-  type:     annotation
+    resource: "@DemontpxRigidSearchBundle/Controller/SearchController.php"
+    type:     annotation

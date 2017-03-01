@@ -13,39 +13,27 @@ use Demontpx\RigidSearchBundle\Model\ScoredDocument;
  */
 interface IndexInterface
 {
-    /**
-     * @param string   $type
-     * @param int      $id
-     * @param Document $document
-     */
-    public function add($type, $id, Document $document);
+    public function add(string $type, int $id, Document $document): void;
+
+    public function remove(string $type, int $id): void;
+
+    public function removeType(string $type): void;
+
+    public function removeAll(): void;
 
     /**
-     * @param string $type
-     * @param int    $id
-     */
-    public function remove($type, $id);
-
-    /**
-     * @param string $type
-     */
-    public function removeType($type);
-
-    public function removeAll();
-
-    /**
-     * @param array $tokenList
+     * @param string[] $tokenList
      *
      * @return int
      */
-    public function count(array $tokenList);
+    public function count(array $tokenList): int;
 
     /**
-     * @param array $tokenList
-     * @param int   $offset
-     * @param int   $limit
+     * @param string[] $tokenList
+     * @param int      $offset
+     * @param int      $limit
      *
      * @return ScoredDocument[]
      */
-    public function search(array $tokenList, $offset = 0, $limit = 10);
+    public function search(array $tokenList, int $offset = 0, int $limit = 10): array;
 }

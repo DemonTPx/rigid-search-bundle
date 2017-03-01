@@ -16,21 +16,13 @@ class ItemSearchManagerFactory
     /** @var ItemSearchManagerInterface[] */
     private $classMap = [];
 
-    /**
-     * @param ItemSearchManagerInterface $manager
-     */
     public function add(ItemSearchManagerInterface $manager)
     {
         $this->list[$manager->getType()] = $manager;
         $this->classMap[$manager->getClass()] = $manager->getType();
     }
 
-    /**
-     * @param string $class
-     *
-     * @return ItemSearchManagerInterface
-     */
-    public function getByClass($class)
+    public function getByClass(string $class): ItemSearchManagerInterface
     {
         if ( ! isset($this->classMap[$class])) {
             throw new \RuntimeException(sprintf(
@@ -42,12 +34,7 @@ class ItemSearchManagerFactory
         return $this->getByType($this->classMap[$class]);
     }
 
-    /**
-     * @param string $type
-     *
-     * @return ItemSearchManagerInterface
-     */
-    public function getByType($type)
+    public function getByType(string $type): ItemSearchManagerInterface
     {
         if ( ! isset($this->list[$type])) {
             throw new \RuntimeException(sprintf(
@@ -63,7 +50,7 @@ class ItemSearchManagerFactory
     /**
      * @return ItemSearchManagerInterface[]
      */
-    public function getAll()
+    public function getAll(): array
     {
         return $this->list;
     }

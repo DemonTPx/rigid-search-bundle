@@ -18,17 +18,11 @@ class SearchQueryPaginationSubscriber implements EventSubscriberInterface
     /** @var SearchManager */
     private $searchManager;
 
-    /**
-     * @param SearchManager $searchManager
-     */
     public function __construct(SearchManager $searchManager)
     {
         $this->searchManager = $searchManager;
     }
 
-    /**
-     * @param ItemsEvent $event
-     */
     public function items(ItemsEvent $event)
     {
         $query = $event->target;

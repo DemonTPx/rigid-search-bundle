@@ -82,13 +82,13 @@ class Document extends BaseDocument
      * @param Field[]   $fieldList
      */
     public function __construct(
-        $type,
-        $typeId,
-        $title,
-        $description,
+        string $type,
+        int $typeId,
+        string $title,
+        string $description,
         \DateTime $publishDate,
-        $url,
-        $fieldList = []
+        string $url,
+        array $fieldList = []
     )
     {
         parent::__construct($title, $description, $publishDate, $url, []);
@@ -101,16 +101,9 @@ class Document extends BaseDocument
         }
     }
 
-    /**
-     * @param string       $type
-     * @param int          $typeId
-     * @param BaseDocument $document
-     *
-     * @return Document
-     */
-    public static function fromDocument($type, $typeId, BaseDocument $document)
+    public static function fromDocument(string $type, int $typeId, BaseDocument $document): Document
     {
-        return new self(
+        return new Document(
             $type,
             $typeId,
             $document->title,
@@ -121,34 +114,22 @@ class Document extends BaseDocument
         );
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     */
-    public function setType($type)
+    public function setType(string $type)
     {
         $this->type = $type;
     }
 
-    /**
-     * @return int
-     */
-    public function getTypeId()
+    public function getTypeId(): int
     {
         return $this->typeId;
     }
 
-    /**
-     * @param int $typeId
-     */
-    public function setTypeId($typeId)
+    public function setTypeId(int $typeId)
     {
         $this->typeId = $typeId;
     }
@@ -156,7 +137,7 @@ class Document extends BaseDocument
     /**
      * @return Field[]
      */
-    public function getFieldList()
+    public function getFieldList(): array
     {
         return $this->fieldList->toArray();
     }

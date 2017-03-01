@@ -16,15 +16,12 @@ class NormalizeRouteProcessor implements ProcessorInterface
     /** @var RequestContext */
     private $requestContext;
 
-    /**
-     * @param RequestContext $requestContext
-     */
     public function __construct(RequestContext $requestContext)
     {
         $this->requestContext = $requestContext;
     }
 
-    public function process(Document $document, $type)
+    public function process(Document $document, string $type): void
     {
         $url = $document->getUrl();
         $baseUrl = $this->requestContext->getBaseUrl();

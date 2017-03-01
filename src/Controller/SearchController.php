@@ -25,7 +25,7 @@ class SearchController extends BaseController
      *
      * @Template
      */
-    public function searchFormAction(Request $request)
+    public function searchFormAction(Request $request): array
     {
         $form = $this->createForm(QueryType::class, $request->query->get('query', ''), [
             'action' => $this->generateUrl('demontpx_rigid_search_result'),
@@ -44,7 +44,7 @@ class SearchController extends BaseController
      * @Route(name="demontpx_rigid_search_result", path="/")
      * @Template
      */
-    public function searchResultAction(Request $request)
+    public function searchResultAction(Request $request): array
     {
         $query = $request->query->get('query', '');
 
@@ -65,7 +65,7 @@ class SearchController extends BaseController
      *
      * @Route(path="/open-search.osd")
      */
-    public function openSearchAction()
+    public function openSearchAction(): Response
     {
         $provider = $this->get('demontpx_rigid_search.open_search_description_provider');
 

@@ -19,9 +19,6 @@ class ReindexCommand extends Command
     /** @var SearchManager */
     private $manager;
 
-    /**
-     * @param SearchManager $manager
-     */
     public function __construct(SearchManager $manager)
     {
         $this->manager = $manager;

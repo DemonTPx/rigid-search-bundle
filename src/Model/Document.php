@@ -10,43 +10,33 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class Document
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $title;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $description;
 
-    /**
-     * @var \DateTime
-     */
+    /** @var \DateTime */
     protected $publishDate;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $url;
 
-    /**
-     * @var Field[]
-     */
+    /** @var Field[] */
     protected $fieldList;
 
     /**
      * @param string    $title
      * @param string    $description
+     * @param \DateTime $publishDate
      * @param string    $url
      * @param Field[]   $fieldList
-     * @param \DateTime $publishDate
      */
     public function __construct(
-        $title,
-        $description,
-        \DateTime $publishDate = null,
-        $url,
+        string $title,
+        string $description,
+        \DateTime $publishDate,
+        string $url,
         array $fieldList = []
     )
     {
@@ -57,66 +47,42 @@ class Document
         $this->fieldList = $fieldList;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getPublishDate()
+    public function getPublishDate(): \DateTime
     {
         return $this->publishDate;
     }
 
-    /**
-     * @param \DateTime $publishDate
-     */
-    public function setPublishDate(\DateTime $publishDate = null)
+    public function setPublishDate(\DateTime $publishDate)
     {
         $this->publishDate = $publishDate;
     }
 
-    /**
-     * @return string
-     */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->url;
     }
 
-    /**
-     * @param string $url
-     */
-    public function setUrl($url)
+    public function setUrl(string $url)
     {
         $this->url = $url;
     }
@@ -124,7 +90,7 @@ class Document
     /**
      * @return Field[]
      */
-    public function getFieldList()
+    public function getFieldList(): array
     {
         return $this->fieldList;
     }
@@ -137,9 +103,6 @@ class Document
         $this->fieldList = $fieldList;
     }
 
-    /**
-     * @param Field $field
-     */
     public function addField(Field $field)
     {
         $this->fieldList[$field->getName()] = $field;

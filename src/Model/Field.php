@@ -10,77 +10,48 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class Field
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $text;
 
-    /**
-     * @var float
-     */
+    /** @var float */
     protected $weight;
 
-    /**
-     * @param string $name
-     * @param string $text
-     * @param float  $weight
-     */
-    public function __construct($name, $text, $weight)
+    public function __construct(string $name, string $text, float $weight)
     {
         $this->name = $name;
         $this->text = $text;
         $this->weight = $weight;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText($text)
+    public function setText(string $text)
     {
         $this->text = $text;
     }
 
-    /**
-     * @return float
-     */
-    public function getWeight()
+    public function getWeight(): float
     {
         return $this->weight;
     }
 
-    /**
-     * @param float $weight
-     */
-    public function setWeight($weight)
+    public function setWeight(float $weight)
     {
         $this->weight = $weight;
     }

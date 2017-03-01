@@ -12,9 +12,5 @@ use Demontpx\RigidSearchBundle\Model\Document;
  */
 interface ProcessorInterface
 {
-    /**
-     * @param Document $document
-     * @param string   $type
-     */
-    public function process(Document $document, $type);
+    public function process(Document $document, string $type): void;
 }

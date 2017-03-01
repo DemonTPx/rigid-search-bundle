@@ -26,11 +26,6 @@ class OrmIndex implements IndexInterface
     /** @var FieldRepository */
     private $fieldRepository;
 
-    /**
-     * @param EntityManager      $entityManager
-     * @param DocumentRepository $documentRepository
-     * @param FieldRepository    $fieldRepository
-     */
     public function __construct(
         EntityManager $entityManager,
         DocumentRepository $documentRepository,
@@ -42,7 +37,7 @@ class OrmIndex implements IndexInterface
         $this->fieldRepository = $fieldRepository;
     }
 
-    public function add($type, $id, Document $document)
+    public function add(string $type, int $id, Document $document): void
     {
         $this->documentRepository->delete($type, $id);
 
@@ -52,22 +47,22 @@ class OrmIndex implements IndexInterface
         $this->entityManager->flush($ormDocument);
     }
 
-    public function remove($type, $id)
+    public function remove(string $type, int $id): void
     {
         $this->documentRepository->delete($type, $id);
     }
 
-    public function removeType($type)
+    public function removeType(string $type): void
     {
         $this->documentRepository->truncateType($type);
     }
 
-    public function removeAll()
+    public function removeAll(): void
     {
         $this->documentRepository->truncate();
     }
 
-    public function count(array $tokenList)
+    public function count(array $tokenList): int
     {
         if (count($tokenList) == 0) {
             return 0;
@@ -76,7 +71,7 @@ class OrmIndex implements IndexInterface
         return $this->fieldRepository->count($tokenList);
     }
 
-    public function search(array $tokenList, $offset = 0, $limit = 10)
+    public function search(array $tokenList, int $offset = 0, int $limit = 10): array
     {
         if (count($tokenList) == 0) {
             return [];

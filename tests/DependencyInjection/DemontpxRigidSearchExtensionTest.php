@@ -3,6 +3,7 @@
 namespace DependencyInjection;
 
 use Demontpx\RigidSearchBundle\DependencyInjection\DemontpxRigidSearchExtension;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -11,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
-class DemontpxRigidSearchExtensionTest extends \PHPUnit_Framework_TestCase 
+class DemontpxRigidSearchExtensionTest extends TestCase
 {
     public function testCorrectRoot()
     {

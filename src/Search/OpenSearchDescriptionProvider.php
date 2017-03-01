@@ -23,11 +23,6 @@ class OpenSearchDescriptionProvider
     /** @var OpenSearchConfiguration */
     private $configuration;
 
-    /**
-     * @param RequestStack            $requestStack
-     * @param RouterInterface         $router
-     * @param OpenSearchConfiguration $configuration
-     */
     public function __construct(
         RequestStack $requestStack,
         RouterInterface $router,
@@ -39,10 +34,7 @@ class OpenSearchDescriptionProvider
         $this->configuration = $configuration;
     }
 
-    /**
-     * @return string
-     */
-    public function get()
+    public function get(): string
     {
         $request = $this->requestStack->getMasterRequest();
 
@@ -64,12 +56,7 @@ class OpenSearchDescriptionProvider
         return $xml->asXML();
     }
 
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
-    private function value($value)
+    private function value(string $value): string
     {
         return htmlspecialchars($value, null, 'UTF-8');
     }

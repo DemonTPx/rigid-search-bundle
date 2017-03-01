@@ -20,7 +20,7 @@ class FieldRepository extends EntityRepository
      *
      * @return float[]
      */
-    public function search($tokenList, $offset = 0, $limit = 10, $publishDate = 'now')
+    public function search(array $tokenList, int $offset = 0, int $limit = 10, string $publishDate = 'now'): array
     {
         $queryBuilder = $this->createQueryBuilder('f');
         $queryBuilder->select('IDENTITY(f.document) AS id')
@@ -53,7 +53,7 @@ class FieldRepository extends EntityRepository
      *
      * @return int
      */
-    public function count(array $tokenList, $publishDate = 'now')
+    public function count(array $tokenList, string $publishDate = 'now'): int
     {
         $queryBuilder = $this->createQueryBuilder('f');
         $queryBuilder->select('COUNT(DISTINCT f.document)');

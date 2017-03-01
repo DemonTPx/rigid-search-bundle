@@ -13,10 +13,7 @@ class SearchQuery
     /** @var string */
     private $query;
 
-    /**
-     * @param string $query
-     */
-    public function __construct($query)
+    public function __construct(string $query)
     {
         $this->query = $query;
     }

@@ -17,12 +17,12 @@ interface SearchDocumentExtractorInterface
      *
      * @return Document
      */
-    public function extractDocument($item);
+    public function extractDocument($item): Document;
 
     /**
      * @param object $item
      *
      * @return int
      */
-    public function extractId($item);
+    public function extractId($item): int;
 }

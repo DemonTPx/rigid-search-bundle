@@ -31,7 +31,7 @@ class DemontpxRigidSearchExtension extends Extension
             $config['open_search']['short_name'],
             $config['open_search']['description'],
             $config['open_search']['tags'],
-            $config['open_search']['contact']
+            $config['open_search']['contact'],
         ]);
 
         $container->setDefinition($root . 'open_search.configuration', $openSearchConfiguration);

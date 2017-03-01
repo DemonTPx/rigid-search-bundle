@@ -11,14 +11,15 @@
     "psr-4": { "Demontpx\\RigidSearchBundle\\": "tests/" }
   },
   "require": {
-    "php": "^5.5|^7.0",
-    "demontpx/util-bundle": "^0.1.6",
-    "symfony/form": "^2.8|^3.0",
+    "php": "^7.1",
+    "demontpx/util-bundle": "dev-master as 0.2",
+    "symfony/form": "^3.2",
     "sensio/framework-extra-bundle": "^3.0",
     "knplabs/knp-paginator-bundle": "^2.5"
   },
   "require-dev": {
-    "phpunit/phpunit": "^4.3"
+    "phpunit/phpunit": "^6.0",
+    "symfony/yaml": "^3.2"
   },
   "config": {
     "bin-dir": "bin"

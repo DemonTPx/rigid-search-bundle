@@ -22,13 +22,7 @@ class OpenSearchConfiguration
     /** @var string */
     private $contact;
 
-    /**
-     * @param string $shortName
-     * @param string $description
-     * @param string $tags
-     * @param string $contact
-     */
-    public function __construct($shortName, $description, $tags, $contact)
+    public function __construct(string $shortName, string $description, string $tags, string $contact)
     {
         $this->shortName = $shortName;
         $this->description = $description;
@@ -36,34 +30,22 @@ class OpenSearchConfiguration
         $this->contact = $contact;
     }
 
-    /**
-     * @return string
-     */
-    public function getShortName()
+    public function getShortName(): string
     {
         return $this->shortName;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
-    public function getTags()
+    public function getTags(): string
     {
         return $this->tags;
     }
 
-    /**
-     * @return string
-     */
-    public function getContact()
+    public function getContact(): string
     {
         return $this->contact;
     }

@@ -16,28 +16,18 @@ class ScoredDocument
     /** @var float */
     private $score;
 
-    /**
-     * @param Document $document
-     * @param float    $score
-     */
-    public function __construct(Document $document, $score)
+    public function __construct(Document $document, float $score)
     {
         $this->document = $document;
         $this->score = $score;
     }
 
-    /**
-     * @return Document
-     */
-    public function getDocument()
+    public function getDocument(): Document
     {
         return $this->document;
     }
 
-    /**
-     * @return float
-     */
-    public function getScore()
+    public function getScore(): float
     {
         return $this->score;
     }

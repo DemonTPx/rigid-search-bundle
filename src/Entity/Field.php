@@ -48,41 +48,23 @@ class Field extends BaseField
      */
     protected $weight;
 
-    /**
-     * @param Document $document
-     * @param string   $text
-     * @param string   $name
-     * @param float    $weight
-     */
-    public function __construct(Document $document, $text, $name, $weight)
+    public function __construct(Document $document, string $text, string $name, float $weight)
     {
         $this->document = $document;
 
         parent::__construct($text, $name, $weight);
     }
 
-    /**
-     * @param Document  $document
-     * @param BaseField $field
-     *
-     * @return Field
-     */
-    public static function fromField(Document $document, BaseField $field)
+    public static function fromField(Document $document, BaseField $field): Field
     {
-        return new self($document, $field->name, $field->text, $field->weight);
+        return new Field($document, $field->name, $field->text, $field->weight);
     }
 
-    /**
-     * @return Document
-     */
-    public function getDocument()
+    public function getDocument(): Document
     {
         return $this->document;
     }
 
-    /**
-     * @param Document $document
-     */
     public function setDocument(Document $document)
     {
         $this->document = $document;

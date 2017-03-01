@@ -34,7 +34,7 @@ The first step is to create a new class which implements the `SearchDocumentExtr
 
 ```php
 class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
-    public function extractDocument($item) {
+    public function extractDocument($item): Document {
         // $item should be of the type NewsItem
         
         // The title, description and URL you put in here are only used for display and link to the item
@@ -56,7 +56,7 @@ class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
         return $document;
     }
     
-    public function extractId($item) {
+    public function extractId($item): int {
         return $item->getId();
     }
 }
@@ -66,23 +66,23 @@ Step two is to create another new class which implements the `ItemSearchManagerI
 
 ```php
 class NewsItemSearchManager implements ItemSearchManagerInterface {
-    public function getClass() {
+    public function getClass(): string {
         // Classname of the entity
         return NewsItem::class;
     }
 
-    public function getType() {
+    public function getType(): string {
         // Short arbitrary unique name to describe the entity
         return 'news';
     }
 
-    public function getDocumentExtractor() {
+    public function getDocumentExtractor(): SearchDocumentExtractorInterface {
         // Return the class created earlier
         // You could, of course, also inject the extractor into this class using the service container and pass it here
         return new NewsItemDocumentExtractor();
     }
 
-    public function fetchAll() {
+    public function fetchAll(): array {
         // This method should return all searchable items of this type (ie: only published news items)
         // This is used when reindexing all items of this type
         // You should figure out for yourself where these entities should come from
@@ -104,7 +104,7 @@ my_bundle.news_item_search_manager:
 If everything is configured correctly, you should be able to index all `news` items using this command:
 
 ```bash
-app/console demontpx:search:reindex:type news
+bin/console demontpx:search:reindex:type news
 ```
 
 The next step is to trigger the index and remove manually when a news item is created, updated or removed. This could be achieved using events, or you could manually index and remove items from your search index in the controller:
