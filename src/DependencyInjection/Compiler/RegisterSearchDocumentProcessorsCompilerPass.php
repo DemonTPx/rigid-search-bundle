@@ -7,9 +7,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Class RegisterSearchDocumentProcessorsCompilerPass
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class RegisterSearchDocumentProcessorsCompilerPass implements CompilerPassInterface

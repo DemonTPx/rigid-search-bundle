@@ -6,9 +6,6 @@ use Demontpx\RigidSearchBundle\Model\Document;
 use Demontpx\RigidSearchBundle\Model\ScoredDocument;
 
 /**
- * Interface IndexInterface
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 interface IndexInterface
@@ -23,15 +20,11 @@ interface IndexInterface
 
     /**
      * @param string[] $tokenList
-     *
-     * @return int
      */
     public function count(array $tokenList): int;
 
     /**
      * @param string[] $tokenList
-     * @param int      $offset
-     * @param int      $limit
      *
      * @return ScoredDocument[]
      */

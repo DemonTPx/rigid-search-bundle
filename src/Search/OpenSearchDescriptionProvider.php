@@ -7,9 +7,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * Class OpenSearchDescriptionProvider
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class OpenSearchDescriptionProvider

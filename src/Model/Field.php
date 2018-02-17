@@ -3,9 +3,6 @@
 namespace Demontpx\RigidSearchBundle\Model;
 
 /**
- * Class Field
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class Field

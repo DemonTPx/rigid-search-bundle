@@ -14,7 +14,7 @@
     "php": "^7.1",
     "demontpx/util-bundle": "^0.3",
     "symfony/form": "^3.2",
-    "sensio/framework-extra-bundle": "^3.0|^4.0|^5.0",
+    "sensio/framework-extra-bundle": "^4.0|^5.0",
     "knplabs/knp-paginator-bundle": "^2.5"
   },
   "require-dev": {

@@ -7,9 +7,6 @@ use Demontpx\UtilBundle\Entity\IdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Field
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  *
  * @ORM\Entity(repositoryClass="Demontpx\RigidSearchBundle\Repository\FieldRepository")

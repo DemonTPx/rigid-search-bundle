@@ -9,9 +9,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Document
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  *
  * @ORM\Entity(repositoryClass="Demontpx\RigidSearchBundle\Repository\DocumentRepository")
@@ -73,12 +70,6 @@ class Document extends BaseDocument
     protected $publishDate;
 
     /**
-     * @param string    $type
-     * @param int       $typeId
-     * @param string    $title
-     * @param string    $description
-     * @param \DateTime $publishDate
-     * @param string    $url
      * @param Field[]   $fieldList
      */
     public function __construct(

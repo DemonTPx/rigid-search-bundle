@@ -10,9 +10,6 @@ use Demontpx\RigidSearchBundle\Repository\FieldRepository;
 use Doctrine\ORM\EntityManager;
 
 /**
- * Class OrmIndex
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class OrmIndex implements IndexInterface

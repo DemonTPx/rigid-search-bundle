@@ -6,9 +6,6 @@ use Demontpx\RigidSearchBundle\Model\Document;
 use Symfony\Component\Routing\RequestContext;
 
 /**
- * Class NormalizeRouteProcessor
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class NormalizeRouteProcessor implements ProcessorInterface

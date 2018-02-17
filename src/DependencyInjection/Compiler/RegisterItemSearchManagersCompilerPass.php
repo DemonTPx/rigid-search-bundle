@@ -7,9 +7,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Class RegisterItemSearchManagersCompilerPass
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class RegisterItemSearchManagersCompilerPass implements CompilerPassInterface

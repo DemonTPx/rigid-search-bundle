@@ -3,9 +3,6 @@
 namespace Demontpx\RigidSearchBundle\Model;
 
 /**
- * Class Document
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class Document
@@ -26,10 +23,6 @@ class Document
     protected $fieldList;
 
     /**
-     * @param string    $title
-     * @param string    $description
-     * @param \DateTime $publishDate
-     * @param string    $url
      * @param Field[]   $fieldList
      */
     public function __construct(

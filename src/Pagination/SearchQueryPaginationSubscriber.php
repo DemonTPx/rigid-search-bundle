@@ -8,9 +8,6 @@ use Knp\Component\Pager\Event\ItemsEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class SearchQueryPaginationSubscriber
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class SearchQueryPaginationSubscriber implements EventSubscriberInterface

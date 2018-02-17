@@ -7,9 +7,6 @@ use Demontpx\RigidSearchBundle\Search\Index\IndexInterface;
 use Demontpx\RigidSearchBundle\Search\Processor\ProcessorInterface;
 
 /**
- * Class SearchManager
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class SearchManager
@@ -74,10 +71,6 @@ class SearchManager
     }
 
     /**
-     * @param string $query
-     * @param int    $offset
-     * @param int    $limit
-     *
      * @return ScoredDocument[]
      */
     public function search(string $query, int $offset = 0, int $limit = 10): array

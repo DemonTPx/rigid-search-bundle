@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Class DemontpxRigidSearchExtensionTest
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class DemontpxRigidSearchExtensionTest extends TestCase

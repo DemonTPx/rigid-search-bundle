@@ -5,18 +5,12 @@ namespace Demontpx\RigidSearchBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * Class FieldRepository
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class FieldRepository extends EntityRepository
 {
     /**
      * @param string[] $tokenList
-     * @param int      $offset
-     * @param int      $limit
-     * @param string   $publishDate
      *
      * @return float[]
      */
@@ -49,9 +43,6 @@ class FieldRepository extends EntityRepository
 
     /**
      * @param string[] $tokenList
-     * @param string   $publishDate
-     *
-     * @return int
      */
     public function count(array $tokenList, string $publishDate = 'now'): int
     {

@@ -7,9 +7,6 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class QueryType
- *
- * @author    Bert Hekman <demontpx@gmail.com>
  * @copyright 2015 Bert Hekman
  */
 class QueryType extends AbstractType
