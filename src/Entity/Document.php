@@ -63,7 +63,7 @@ class Document extends BaseDocument
     protected $fieldList;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      *
      * @ORM\Column(type="datetime")
      */
@@ -77,7 +77,7 @@ class Document extends BaseDocument
         int $typeId,
         string $title,
         string $description,
-        \DateTime $publishDate,
+        \DateTimeInterface $publishDate,
         string $url,
         array $fieldList = []
     )

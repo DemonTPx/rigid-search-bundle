@@ -13,7 +13,7 @@ class Document
     /** @var string */
     protected $description;
 
-    /** @var \DateTime */
+    /** @var \DateTimeInterface */
     protected $publishDate;
 
     /** @var string */
@@ -23,12 +23,12 @@ class Document
     protected $fieldList;
 
     /**
-     * @param Field[]   $fieldList
+     * @param Field[] $fieldList
      */
     public function __construct(
         string $title,
         string $description,
-        \DateTime $publishDate,
+        \DateTimeInterface $publishDate,
         string $url,
         array $fieldList = []
     )
@@ -60,12 +60,12 @@ class Document
         $this->description = $description;
     }
 
-    public function getPublishDate(): \DateTime
+    public function getPublishDate(): \DateTimeInterface
     {
         return $this->publishDate;
     }
 
-    public function setPublishDate(\DateTime $publishDate)
+    public function setPublishDate(\DateTimeInterface $publishDate)
     {
         $this->publishDate = $publishDate;
     }
