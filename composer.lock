@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41449b81d5cb34d059dab647041a1586",
+    "content-hash": "f8630a9dff98147cd8e891b08042c95f",
     "packages": [
         {
             "name": "demontpx/util-bundle",
-            "version": "0.3",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DemonTPx/util-bundle.git",
-                "reference": "462e86fdad0c8ed52bf1458a58b3d55910c99a91"
+                "reference": "540a4905f40ffbff227fa965203acdb324737c5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/462e86fdad0c8ed52bf1458a58b3d55910c99a91",
-                "reference": "462e86fdad0c8ed52bf1458a58b3d55910c99a91",
+                "url": "https://api.github.com/repos/DemonTPx/util-bundle/zipball/540a4905f40ffbff227fa965203acdb324737c5b",
+                "reference": "540a4905f40ffbff227fa965203acdb324737c5b",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2017-06-29T17:48:35+00:00"
+            "time": "2018-02-18T11:49:56+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3760,20 +3760,20 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.4",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe"
+                "reference": "ffc60bda1d4a00ec0b32eeabf39dc017bf480028"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
-                "reference": "eab73b6c21d27ae4cd037c417618dfd4befb0bfe",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/ffc60bda1d4a00ec0b32eeabf39dc017bf480028",
+                "reference": "ffc60bda1d4a00ec0b32eeabf39dc017bf480028",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "conflict": {
                 "symfony/console": "<3.4"
@@ -3787,7 +3787,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -3814,7 +3814,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-21T19:05:02+00:00"
+            "time": "2018-01-21T19:06:11+00:00"
         },
         {
             "name": "theseer/tokenizer",

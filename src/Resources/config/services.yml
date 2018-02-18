@@ -1,9 +1,12 @@
 services:
+    Demontpx\RigidSearchBundle\Search\SearchManager: "@demontpx_rigid_search.search_manager"
+
     demontpx_rigid_search.search_manager:
         class: Demontpx\RigidSearchBundle\Search\SearchManager
         arguments:
             - "@demontpx_rigid_search.index.orm"
             - "@demontpx_rigid_search.item_search_manager_factory"
+        public: true
 
     demontpx_rigid_search.item_search_manager_factory:
         class: Demontpx\RigidSearchBundle\Search\ItemSearchManagerFactory
