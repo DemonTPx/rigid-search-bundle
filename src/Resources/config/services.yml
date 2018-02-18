@@ -31,6 +31,7 @@ services:
             - "@request_stack"
             - "@router"
             - "@demontpx_rigid_search.open_search.configuration"
+        public: true
 
     demontpx_rigid_search.pagination.subscriber:
         class: Demontpx\RigidSearchBundle\Pagination\SearchQueryPaginationSubscriber
