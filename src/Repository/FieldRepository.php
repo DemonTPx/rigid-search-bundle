@@ -34,7 +34,7 @@ class FieldRepository extends EntityRepository
         $queryBuilder->addSelect('SUM(' . implode(' + ', $scorePartList) . ') AS score');
 
         $queryBuilder->join('f.document', 'd')
-            ->andWhere('d.publishDate < :now')
+            ->andWhere('d.publishDate <= :now')
             ->setParameter('now', new \DateTime($publishDate))
             ->addOrderBy('d.publishDate', 'DESC');
 
@@ -57,7 +57,7 @@ class FieldRepository extends EntityRepository
         }
 
         $queryBuilder->join('f.document', 'd')
-            ->andWhere('d.publishDate < :now')
+            ->andWhere('d.publishDate <= :now')
             ->setParameter('now', new \DateTime($publishDate));
 
         return (int) $queryBuilder->getQuery()->getSingleScalarResult();
