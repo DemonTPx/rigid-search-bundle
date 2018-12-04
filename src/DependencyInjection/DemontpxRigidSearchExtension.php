@@ -22,8 +22,6 @@ class DemontpxRigidSearchExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
-        $root = 'demontpx_rigid_search.';
-
         $openSearchConfiguration = new Definition(OpenSearchConfiguration::class, [
             $config['open_search']['short_name'],
             $config['open_search']['description'],
@@ -31,6 +29,6 @@ class DemontpxRigidSearchExtension extends Extension
             $config['open_search']['contact'],
         ]);
 
-        $container->setDefinition($root . 'open_search.configuration', $openSearchConfiguration);
+        $container->setDefinition(OpenSearchConfiguration::class, $openSearchConfiguration);
     }
 }

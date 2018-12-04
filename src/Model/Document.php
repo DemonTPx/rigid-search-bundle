@@ -9,16 +9,12 @@ class Document
 {
     /** @var string */
     protected $title;
-
     /** @var string */
     protected $description;
-
     /** @var \DateTimeInterface */
     protected $publishDate;
-
     /** @var string */
     protected $url;
-
     /** @var Field[] */
     protected $fieldList;
 

@@ -1,77 +1,30 @@
 services:
-    Demontpx\RigidSearchBundle\Search\SearchManager: "@demontpx_rigid_search.search_manager"
+    _defaults:
+        autowire: true
 
-    demontpx_rigid_search.search_manager:
-        class: Demontpx\RigidSearchBundle\Search\SearchManager
-        arguments:
-            - "@demontpx_rigid_search.index.orm"
-            - "@demontpx_rigid_search.item_search_manager_factory"
-        public: true
+    Demontpx\RigidSearchBundle\Search\SearchManager:
+    Demontpx\RigidSearchBundle\Search\ItemSearchManagerFactory:
 
-    demontpx_rigid_search.item_search_manager_factory:
-        class: Demontpx\RigidSearchBundle\Search\ItemSearchManagerFactory
+    Demontpx\RigidSearchBundle\Search\Index\IndexInterface: '@Demontpx\RigidSearchBundle\Search\Index\OrmIndex'
+    Demontpx\RigidSearchBundle\Search\Index\OrmIndex:
 
-    demontpx_rigid_search.index.orm:
-        class: Demontpx\RigidSearchBundle\Search\Index\OrmIndex
-        arguments:
-            - "@doctrine.orm.entity_manager"
-            - "@demontpx_rigid_search.repository.document"
-            - "@demontpx_rigid_search.repository.field"
+    Demontpx\RigidSearchBundle\Search\Processor\NormalizeRouteProcessor:
+        tags: [demontpx_rigid_search.document_processor]
 
-    demontpx_rigid_search.processor.normalize_route_processor:
-        class: Demontpx\RigidSearchBundle\Search\Processor\NormalizeRouteProcessor
-        arguments:
-            - "@router.request_context"
-        tags:
-            - { name: demontpx_rigid_search.document_processor }
+    Demontpx\RigidSearchBundle\Search\OpenSearchDescriptionProvider:
 
-    demontpx_rigid_search.open_search_description_provider:
-        class: Demontpx\RigidSearchBundle\Search\OpenSearchDescriptionProvider
-        arguments:
-            - "@request_stack"
-            - "@router"
-            - "@demontpx_rigid_search.open_search.configuration"
-        public: true
+    Demontpx\RigidSearchBundle\Pagination\SearchQueryPaginationSubscriber:
+        tags: [knp_paginator.subscriber]
 
-    demontpx_rigid_search.pagination.subscriber:
-        class: Demontpx\RigidSearchBundle\Pagination\SearchQueryPaginationSubscriber
-        arguments:
-            - "@demontpx_rigid_search.search_manager"
-        tags:
-            - { name: knp_paginator.subscriber }
+    Demontpx\RigidSearchBundle\Repository\DocumentRepository:
+    Demontpx\RigidSearchBundle\Repository\FieldRepository:
 
-    demontpx_rigid_search.repository.document:
-        class: Demontpx\RigidSearchBundle\Repository\DocumentRepository
-        factory: ["@doctrine.orm.entity_manager", getRepository]
-        arguments: [DemontpxRigidSearchBundle:Document]
+    Demontpx\RigidSearchBundle\Command\:
+        resource: '../../Command'
+        autowire: true
+        tags: [console.command]
 
-    demontpx_rigid_search.repository.field:
-        class: Demontpx\RigidSearchBundle\Repository\FieldRepository
-        factory: ["@doctrine.orm.entity_manager", getRepository]
-        arguments: [DemontpxRigidSearchBundle:Field]
-
-    demontpx_rigid_search.form_type.query:
-        class: Demontpx\RigidSearchBundle\Form\QueryType
-        tags:
-            - { name: form.type }
-
-    demontpx_rigid_search.command.debug:
-        class: Demontpx\RigidSearchBundle\Command\DebugCommand
-        arguments:
-            - "@demontpx_rigid_search.item_search_manager_factory"
-        tags:
-            - { name: console.command }
-
-    demontpx_rigid_search.command.reindex_all:
-        class: Demontpx\RigidSearchBundle\Command\ReindexAllCommand
-        arguments:
-            - "@demontpx_rigid_search.search_manager"
-        tags:
-            - { name: console.command }
-
-    demontpx_rigid_search.command.reindex:
-        class: Demontpx\RigidSearchBundle\Command\ReindexCommand
-        arguments:
-            - "@demontpx_rigid_search.search_manager"
-        tags:
-            - { name: console.command }
+    Demontpx\RigidSearchBundle\Controller\:
+        resource: '../../Controller'
+        autowire: true
+        tags: [controller.service_arguments]

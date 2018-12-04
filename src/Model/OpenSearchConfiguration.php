@@ -9,13 +9,10 @@ class OpenSearchConfiguration
 {
     /** @var string */
     private $shortName;
-
     /** @var string */
     private $description;
-
     /** @var string */
     private $tags;
-
     /** @var string */
     private $contact;
 

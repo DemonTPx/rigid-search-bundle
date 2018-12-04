@@ -9,7 +9,6 @@ class ItemSearchManagerFactory
 {
     /** @var ItemSearchManagerInterface[] */
     private $list = [];
-
     /** @var ItemSearchManagerInterface[] */
     private $classMap = [];
 

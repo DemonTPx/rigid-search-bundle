@@ -2,6 +2,7 @@
 
 namespace Demontpx\RigidSearchBundle\DependencyInjection\Compiler;
 
+use Demontpx\RigidSearchBundle\Search\SearchManager;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -13,7 +14,7 @@ class RegisterSearchDocumentProcessorsCompilerPass implements CompilerPassInterf
 {
     public function process(ContainerBuilder $container)
     {
-        $manager = $container->getDefinition('demontpx_rigid_search.search_manager');
+        $manager = $container->getDefinition(SearchManager::class);
 
         $list = $container->findTaggedServiceIds('demontpx_rigid_search.document_processor');
         foreach (array_keys($list) as $id) {

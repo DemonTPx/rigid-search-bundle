@@ -2,16 +2,27 @@
 
 namespace Demontpx\RigidSearchBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Demontpx\RigidSearchBundle\Entity\Document;
+use Demontpx\UtilBundle\Repository\AbstractEntityRepository;
 
 /**
  * @copyright 2015 Bert Hekman
  */
-class DocumentRepository extends EntityRepository
+class DocumentRepository extends AbstractEntityRepository
 {
+    protected function getClassName(): string
+    {
+        return Document::class;
+    }
+
+    public function find(int $id): ?Document
+    {
+        return $this->repository->find($id);
+    }
+
     public function delete(string $type, int $typeId): void
     {
-        $queryBuilder = $this->createQueryBuilder('d');
+        $queryBuilder = $this->repository->createQueryBuilder('d');
         $queryBuilder->delete()
             ->where('d.type = :type AND d.typeId = :type_id');
 
@@ -23,7 +34,7 @@ class DocumentRepository extends EntityRepository
 
     public function truncateType(string $type): void
     {
-        $queryBuilder = $this->createQueryBuilder('d');
+        $queryBuilder = $this->repository->createQueryBuilder('d');
         $queryBuilder->delete()
             ->where('d.type = :type');
 
@@ -32,7 +43,7 @@ class DocumentRepository extends EntityRepository
 
     public function truncate(): void
     {
-        $queryBuilder = $this->createQueryBuilder('d');
+        $queryBuilder = $this->repository->createQueryBuilder('d');
         $queryBuilder->delete();
 
         $queryBuilder->getQuery()->execute();

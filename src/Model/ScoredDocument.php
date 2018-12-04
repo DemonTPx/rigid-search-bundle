@@ -9,7 +9,6 @@ class ScoredDocument
 {
     /** @var Document */
     private $document;
-
     /** @var float */
     private $score;
 

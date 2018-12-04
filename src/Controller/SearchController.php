@@ -4,19 +4,32 @@ namespace Demontpx\RigidSearchBundle\Controller;
 
 use Demontpx\RigidSearchBundle\Form\QueryType;
 use Demontpx\RigidSearchBundle\Model\SearchQuery;
+use Demontpx\RigidSearchBundle\Search\OpenSearchDescriptionProvider;
 use Demontpx\UtilBundle\Controller\BaseController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @copyright 2015 Bert Hekman
  */
 class SearchController extends BaseController
 {
+    /** @var PaginatorInterface */
+    private $paginator;
+    /** @var OpenSearchDescriptionProvider */
+    private $openSearchDescriptionProvider;
+
+    public function __construct(PaginatorInterface $paginator, OpenSearchDescriptionProvider $openSearchDescriptionProvider)
+    {
+        $this->paginator = $paginator;
+        $this->openSearchDescriptionProvider = $openSearchDescriptionProvider;
+    }
+
     /**
-     * @Template
+     * @Template("@DemontpxRigidSearch/search/search_form.html.twig")
      */
     public function searchFormAction(Request $request): array
     {
@@ -30,16 +43,14 @@ class SearchController extends BaseController
     }
 
     /**
-     *
      * @Route(name="demontpx_rigid_search_result", path="/")
-     * @Template
+     * @Template("@DemontpxRigidSearch/search/search_result.html.twig")
      */
     public function searchResultAction(Request $request): array
     {
         $query = $request->query->get('query', '');
 
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
+        $pagination = $this->paginator->paginate(
             new SearchQuery($query),
             $request->get('page', 1),
             10
@@ -55,9 +66,7 @@ class SearchController extends BaseController
      */
     public function openSearchAction(): Response
     {
-        $provider = $this->get('demontpx_rigid_search.open_search_description_provider');
-
-        return new Response($provider->get(), Response::HTTP_OK, [
+        return new Response($this->openSearchDescriptionProvider->get(), Response::HTTP_OK, [
             'Content-Type' => 'application/opensearchdescription+xml',
         ]);
     }

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @copyright 2015 Bert Hekman
  *
- * @ORM\Entity(repositoryClass="Demontpx\RigidSearchBundle\Repository\DocumentRepository")
+ * @ORM\Entity()
  * @ORM\Table(name="search_document", uniqueConstraints={
  *      @ORM\UniqueConstraint(columns={"type", "type_id"})
  * })

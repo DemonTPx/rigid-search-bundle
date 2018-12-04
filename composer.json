@@ -12,7 +12,7 @@
   },
   "require": {
     "php": "^7.1",
-    "demontpx/util-bundle": "^0.4",
+    "demontpx/util-bundle": "^0.4.8",
     "symfony/form": "^4.0",
     "sensio/framework-extra-bundle": "^5.1",
     "knplabs/knp-paginator-bundle": "^2.5"

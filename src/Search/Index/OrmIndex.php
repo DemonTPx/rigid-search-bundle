@@ -7,24 +7,22 @@ use Demontpx\RigidSearchBundle\Model\Document;
 use Demontpx\RigidSearchBundle\Model\ScoredDocument;
 use Demontpx\RigidSearchBundle\Repository\DocumentRepository;
 use Demontpx\RigidSearchBundle\Repository\FieldRepository;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @copyright 2015 Bert Hekman
  */
 class OrmIndex implements IndexInterface
 {
-    /** @var EntityManager */
+    /** @var EntityManagerInterface */
     private $entityManager;
-
     /** @var DocumentRepository */
     private $documentRepository;
-
     /** @var FieldRepository */
     private $fieldRepository;
 
     public function __construct(
-        EntityManager $entityManager,
+        EntityManagerInterface $entityManager,
         DocumentRepository $documentRepository,
         FieldRepository $fieldRepository
     )
@@ -78,7 +76,6 @@ class OrmIndex implements IndexInterface
 
         $resultList = [];
         foreach ($searchResultList as $id => $score) {
-            /** @var OrmDocument $document */
             $document = $this->documentRepository->find($id);
             $resultList[] = new ScoredDocument($document, $score);
         }

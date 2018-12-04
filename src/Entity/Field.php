@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @copyright 2015 Bert Hekman
  *
- * @ORM\Entity(repositoryClass="Demontpx\RigidSearchBundle\Repository\FieldRepository")
+ * @ORM\Entity()
  * @ORM\Table(name="search_field")
  */
 class Field extends BaseField

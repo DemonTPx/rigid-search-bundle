@@ -9,10 +9,8 @@ class Field
 {
     /** @var string */
     protected $name;
-
     /** @var string */
     protected $text;
-
     /** @var float */
     protected $weight;
 

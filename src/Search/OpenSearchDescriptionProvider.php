@@ -13,10 +13,8 @@ class OpenSearchDescriptionProvider
 {
     /** @var RequestStack */
     private $requestStack;
-
     /** @var RouterInterface */
     private $router;
-
     /** @var OpenSearchConfiguration */
     private $configuration;
 

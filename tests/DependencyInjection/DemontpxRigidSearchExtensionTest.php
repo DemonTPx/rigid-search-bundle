@@ -25,21 +25,12 @@ class DemontpxRigidSearchExtensionTest extends TestCase
         $extension = new DemontpxRigidSearchExtension();
         $extension->load($configs, $container = new ContainerBuilder());
 
-        $root = 'demontpx_rigid_search.';
+        $root = 'Demontpx\\RigidSearchBundle\\';
 
         foreach (array_keys($container->getDefinitions()) as $id) {
             if ($id == 'service_container') {
                 continue;
             }
-            $this->assertStringStartsWith($root, $id);
-        }
-        foreach (array_keys($container->getAliases()) as $id) {
-            if (strpos($id, '\\') !== -1) {
-                continue;
-            }
-            $this->assertStringStartsWith($root, $id);
-        }
-        foreach (array_keys($container->getParameterBag()->all()) as $id) {
             $this->assertStringStartsWith($root, $id);
         }
     }

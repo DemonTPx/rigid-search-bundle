@@ -13,10 +13,8 @@ class SearchManager
 {
     /** @var IndexInterface */
     private $index;
-
     /** @var ItemSearchManagerFactory */
     private $itemManagerFactory;
-
     /** @var ProcessorInterface[] */
     private $documentProcessorList = [];
 

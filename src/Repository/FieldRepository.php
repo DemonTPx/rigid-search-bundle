@@ -2,13 +2,19 @@
 
 namespace Demontpx\RigidSearchBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Demontpx\RigidSearchBundle\Entity\Field;
+use Demontpx\UtilBundle\Repository\AbstractEntityRepository;
 
 /**
  * @copyright 2015 Bert Hekman
  */
-class FieldRepository extends EntityRepository
+class FieldRepository extends AbstractEntityRepository
 {
+    protected function getClassName(): string
+    {
+        return Field::class;
+    }
+
     /**
      * @param string[] $tokenList
      *
@@ -16,7 +22,7 @@ class FieldRepository extends EntityRepository
      */
     public function search(array $tokenList, int $offset = 0, int $limit = 10, string $publishDate = 'now'): array
     {
-        $queryBuilder = $this->createQueryBuilder('f');
+        $queryBuilder = $this->repository->createQueryBuilder('f');
         $queryBuilder->select('IDENTITY(f.document) AS id')
             ->groupBy('f.document')
             ->orderBy('score', 'DESC')
@@ -46,7 +52,7 @@ class FieldRepository extends EntityRepository
      */
     public function count(array $tokenList, string $publishDate = 'now'): int
     {
-        $queryBuilder = $this->createQueryBuilder('f');
+        $queryBuilder = $this->repository->createQueryBuilder('f');
         $queryBuilder->select('COUNT(DISTINCT f.document)');
 
         foreach ($tokenList as $index => $token) {

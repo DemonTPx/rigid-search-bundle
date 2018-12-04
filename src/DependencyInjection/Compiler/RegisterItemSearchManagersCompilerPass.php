@@ -2,6 +2,7 @@
 
 namespace Demontpx\RigidSearchBundle\DependencyInjection\Compiler;
 
+use Demontpx\RigidSearchBundle\Search\ItemSearchManagerFactory;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -13,7 +14,7 @@ class RegisterItemSearchManagersCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $factory = $container->getDefinition('demontpx_rigid_search.item_search_manager_factory');
+        $factory = $container->getDefinition(ItemSearchManagerFactory::class);
 
         $list = $container->findTaggedServiceIds('demontpx_rigid_search.item_search_manager');
         foreach (array_keys($list) as $id) {
