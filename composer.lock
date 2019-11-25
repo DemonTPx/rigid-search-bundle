@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f925def5ecc652a041962a53e812fe39",
+    "content-hash": "8907f1ccd15630d3b693745cf6205b31",
     "packages": [
         {
             "name": "demontpx/util-bundle",
