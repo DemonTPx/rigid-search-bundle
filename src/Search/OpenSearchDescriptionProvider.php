@@ -53,6 +53,6 @@ class OpenSearchDescriptionProvider
 
     private function value(string $value): string
     {
-        return htmlspecialchars($value, null, 'UTF-8');
+        return htmlspecialchars($value, ENT_COMPAT | ENT_HTML5, 'UTF-8');
     }
 }
