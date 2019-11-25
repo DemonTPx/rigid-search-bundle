@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Search;
 
@@ -9,7 +9,7 @@ class ItemSearchManagerFactory
 {
     /** @var ItemSearchManagerInterface[] */
     private $list = [];
-    /** @var ItemSearchManagerInterface[] */
+    /** @var string[] */
     private $classMap = [];
 
     public function add(ItemSearchManagerInterface $manager)

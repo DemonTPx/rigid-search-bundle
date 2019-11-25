@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Repository;
 
@@ -18,7 +18,7 @@ class FieldRepository extends AbstractEntityRepository
     /**
      * @param string[] $tokenList
      *
-     * @return float[]
+     * @return string[]
      */
     public function search(array $tokenList, int $offset = 0, int $limit = 10, string $publishDate = 'now'): array
     {

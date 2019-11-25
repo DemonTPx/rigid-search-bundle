@@ -8,21 +8,15 @@ Searches will be sorted by relevance which is calculated using the weight you ca
 
 Require the bundle using composer:
 
-```bash
+``` bash
 composer require demontpx/rigid-search-bundle
-```
-
-Then add it to your bundles section in `AppKernel.php`:
-
-```php
-new Demontpx\RigidSearchBundle\DemontpxRigidSearchBundle()
 ```
 
 ## Usage: Making an entity searchable
 
 Lets say we want to index a `NewsItem` entity:
 
-```php
+``` php
 class NewsItem {
     public function getId() { return $this->id; }
     public function getTitle() { return $this->title; }
@@ -32,7 +26,7 @@ class NewsItem {
 
 The first step is to create a new class which implements the `SearchDocumentExtractorInterface`. In here you define in which fields there needs to be searched and how important they are in relation to each other.
 
-```php
+``` php
 class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
     public function extractDocument($item): Document {
         // $item should be of the type NewsItem
@@ -64,7 +58,7 @@ class NewsItemDocumentExtractor implements SearchDocumentExtractorInterface {
 
 Step two is to create another new class which implements the `ItemSearchManagerInterface`:
 
-```php
+``` php
 class NewsItemSearchManager implements ItemSearchManagerInterface {
     public function getClass(): string {
         // Classname of the entity
@@ -94,11 +88,9 @@ class NewsItemSearchManager implements ItemSearchManagerInterface {
 
 Register this class as a service in the container:
 
-```yml
-my_bundle.news_item_search_manager:
-    class: MyBundle\NewsItemSearchManager
-    tags:
-        - { name: demontpx_rigid_search.item_search_manager }
+``` yml
+MyBundle\NewsItemSearchManager:
+    tags: [demontpx_rigid_search.item_search_manager]
 ```
 
 If everything is configured correctly, you should be able to index all `news` items using this command:
@@ -109,7 +101,7 @@ bin/console demontpx:search:reindex:type news
 
 The next step is to trigger the index and remove manually when a news item is created, updated or removed. This could be achieved using events, or you could manually index and remove items from your search index in the controller:
 
-```php
+``` php
 class NewsItemController extends Controller {
     public function newAction() {
         $item = new NewsItem();
@@ -142,9 +134,9 @@ class NewsItemController extends Controller {
 
 ## Usage: Adding the search field and showing results
 
-The first step is to add this to your `routing.yml`:
+The first step is to add this to your `routing.yaml`:
 
-```yml
+``` yml
 demontpx_rigid_search:
     resource: "@DemontpxRigidSearchBundle/Resources/config/routing.yml"
     prefix:   /search
@@ -152,8 +144,8 @@ demontpx_rigid_search:
 
 After that you could add this to any of your twig templates:
 
-```twig
-{{ render(controller('DemontpxRigidSearchBundle:Search:searchForm', {}, { query: app.request.query.get('query', '') })) }}
+``` twig
+{{ render(controller('Demontpx\\RigidSearchBundle\\Controller\\SearchController::searchForm', {}, { query: app.request.query.get('query', '') })) }}
 ```
 
 Which will add the search input field. When submitted, this will show the search result.

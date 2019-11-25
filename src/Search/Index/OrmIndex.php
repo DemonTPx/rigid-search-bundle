@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Search\Index;
 
@@ -77,7 +77,7 @@ class OrmIndex implements IndexInterface
         $resultList = [];
         foreach ($searchResultList as $id => $score) {
             $document = $this->documentRepository->find($id);
-            $resultList[] = new ScoredDocument($document, $score);
+            $resultList[] = new ScoredDocument($document, (float) $score);
         }
 
         return $resultList;

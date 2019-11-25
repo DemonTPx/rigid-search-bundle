@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Command;
 
@@ -38,5 +38,7 @@ class DebugCommand extends Command
             $output->writeln('    class     <info>' . $manager->getClass() . '</info>');
             $output->writeln('    extractor <info>' . get_class($manager->getDocumentExtractor()) . '</info>');
         }
+
+        return 0;
     }
 }

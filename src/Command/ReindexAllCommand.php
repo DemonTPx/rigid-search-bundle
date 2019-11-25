@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Command;
 
@@ -30,5 +30,7 @@ class ReindexAllCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->manager->reindexAll();
+
+        return 0;
     }
 }

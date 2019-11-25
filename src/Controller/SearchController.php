@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Controller;
 
@@ -31,7 +31,7 @@ class SearchController extends BaseController
     /**
      * @Template("@DemontpxRigidSearch/search/search_form.html.twig")
      */
-    public function searchFormAction(Request $request): array
+    public function searchForm(Request $request): array
     {
         $form = $this->createForm(QueryType::class, $request->query->get('query', ''), [
             'action' => $this->generateUrl('demontpx_rigid_search_result'),
@@ -43,10 +43,10 @@ class SearchController extends BaseController
     }
 
     /**
-     * @Route(name="demontpx_rigid_search_result", path="/")
+     * @Route("/", name="demontpx_rigid_search_result")
      * @Template("@DemontpxRigidSearch/search/search_result.html.twig")
      */
-    public function searchResultAction(Request $request): array
+    public function searchResult(Request $request): array
     {
         $query = $request->query->get('query', '');
 
@@ -62,9 +62,9 @@ class SearchController extends BaseController
     }
 
     /**
-     * @Route(path="/open-search.osd")
+     * @Route("/open-search.osd", name="demontpx_rigidsearch_search_opensearch")
      */
-    public function openSearchAction(): Response
+    public function openSearch(): Response
     {
         return new Response($this->openSearchDescriptionProvider->get(), Response::HTTP_OK, [
             'Content-Type' => 'application/opensearchdescription+xml',

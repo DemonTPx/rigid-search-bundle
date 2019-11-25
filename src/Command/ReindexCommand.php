@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Demontpx\RigidSearchBundle\Command;
 
@@ -34,5 +34,7 @@ class ReindexCommand extends Command
         $name = $input->getArgument('name');
 
         $this->manager->reindex($name);
+
+        return 0;
     }
 }
