@@ -78,11 +78,7 @@ class SearchManager
 
     private function createTokenList(string $query): array
     {
-        $tokenList = explode(' ', $query);
-
-        $tokenList = array_filter($tokenList, function ($v) {
-            return ! empty($v);
-        });
+        $tokenList = array_filter(explode(' ', $query), fn ($v) => ! empty($v));
 
         if (empty($tokenList)) {
             return [];
