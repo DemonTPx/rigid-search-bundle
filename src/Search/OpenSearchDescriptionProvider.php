@@ -11,12 +11,9 @@ use Symfony\Component\Routing\RouterInterface;
  */
 class OpenSearchDescriptionProvider
 {
-    /** @var RequestStack */
-    private $requestStack;
-    /** @var RouterInterface */
-    private $router;
-    /** @var OpenSearchConfiguration */
-    private $configuration;
+    private RequestStack $requestStack;
+    private RouterInterface $router;
+    private OpenSearchConfiguration $configuration;
 
     public function __construct(
         RequestStack $requestStack,

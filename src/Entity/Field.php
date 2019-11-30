@@ -17,33 +17,25 @@ class Field extends BaseField
     use IdTrait;
 
     /**
-     * @var Document
-     *
      * @ORM\ManyToOne(targetEntity="Document", inversedBy="fieldList")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    protected $document;
+    protected Document $document;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $text;
+    protected string $text;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=64)
      */
-    protected $name;
+    protected string $name;
 
     /**
-     * @var float
-     *
      * @ORM\Column(type="float")
      */
-    protected $weight;
+    protected float $weight;
 
     public function __construct(Document $document, string $text, string $name, float $weight)
     {

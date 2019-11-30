@@ -10,8 +10,7 @@ use Symfony\Component\Routing\RequestContext;
  */
 class NormalizeRouteProcessor implements ProcessorInterface
 {
-    /** @var RequestContext */
-    private $requestContext;
+    private RequestContext $requestContext;
 
     public function __construct(RequestContext $requestContext)
     {

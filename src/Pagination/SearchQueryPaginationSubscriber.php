@@ -12,8 +12,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class SearchQueryPaginationSubscriber implements EventSubscriberInterface
 {
-    /** @var SearchManager */
-    private $searchManager;
+    private SearchManager $searchManager;
 
     public function __construct(SearchManager $searchManager)
     {

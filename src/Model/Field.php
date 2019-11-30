@@ -7,12 +7,9 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class Field
 {
-    /** @var string */
-    protected $name;
-    /** @var string */
-    protected $text;
-    /** @var float */
-    protected $weight;
+    protected string $name;
+    protected string $text;
+    protected float $weight;
 
     public function __construct(string $name, string $text, float $weight)
     {

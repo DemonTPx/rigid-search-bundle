@@ -8,9 +8,9 @@ namespace Demontpx\RigidSearchBundle\Search;
 class ItemSearchManagerFactory
 {
     /** @var ItemSearchManagerInterface[] */
-    private $list = [];
+    private array $list = [];
     /** @var string[] */
-    private $classMap = [];
+    private array $classMap = [];
 
     public function add(ItemSearchManagerInterface $manager)
     {

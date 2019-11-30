@@ -14,12 +14,9 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 class OrmIndex implements IndexInterface
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
-    /** @var DocumentRepository */
-    private $documentRepository;
-    /** @var FieldRepository */
-    private $fieldRepository;
+    private EntityManagerInterface $entityManager;
+    private DocumentRepository $documentRepository;
+    private FieldRepository $fieldRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,

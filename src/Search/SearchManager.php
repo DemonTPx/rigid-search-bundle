@@ -11,12 +11,10 @@ use Demontpx\RigidSearchBundle\Search\Processor\ProcessorInterface;
  */
 class SearchManager
 {
-    /** @var IndexInterface */
-    private $index;
-    /** @var ItemSearchManagerFactory */
-    private $itemManagerFactory;
+    private IndexInterface $index;
+    private ItemSearchManagerFactory $itemManagerFactory;
     /** @var ProcessorInterface[] */
-    private $documentProcessorList = [];
+    private array $documentProcessorList = [];
 
     public function __construct(IndexInterface $index, ItemSearchManagerFactory $itemManagerFactory)
     {

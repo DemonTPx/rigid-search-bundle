@@ -21,39 +21,29 @@ class Document extends BaseDocument
     use IdTrait;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=64)
      */
-    protected $type;
+    protected string $type;
 
     /**
-     * @var int
-     *
      * @ORM\Column(type="integer")
      */
-    protected $typeId;
+    protected int $typeId;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=255)
      */
-    protected $title;
+    protected string $title;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $description;
+    protected string $description;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=1024)
      */
-    protected $url;
+    protected string $url;
 
     /**
      * @var ArrayCollection|Field[]
@@ -63,14 +53,12 @@ class Document extends BaseDocument
     protected $fieldList;
 
     /**
-     * @var \DateTimeInterface
-     *
      * @ORM\Column(type="datetime")
      */
-    protected $publishDate;
+    protected \DateTimeInterface $publishDate;
 
     /**
-     * @param Field[]   $fieldList
+     * @param Field[] $fieldList
      */
     public function __construct(
         string $type,

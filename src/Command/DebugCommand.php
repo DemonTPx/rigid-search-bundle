@@ -12,8 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class DebugCommand extends Command
 {
-    /** @var ItemSearchManagerFactory */
-    private $factory;
+    private ItemSearchManagerFactory $factory;
 
     public function __construct(ItemSearchManagerFactory $factory)
     {

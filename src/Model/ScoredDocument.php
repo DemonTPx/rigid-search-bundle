@@ -7,10 +7,8 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class ScoredDocument
 {
-    /** @var Document */
-    private $document;
-    /** @var float */
-    private $score;
+    private Document $document;
+    private float $score;
 
     public function __construct(Document $document, float $score)
     {

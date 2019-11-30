@@ -7,14 +7,10 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class Document
 {
-    /** @var string */
-    protected $title;
-    /** @var string */
-    protected $description;
-    /** @var \DateTimeInterface */
-    protected $publishDate;
-    /** @var string */
-    protected $url;
+    protected string $title;
+    protected string $description;
+    protected \DateTimeInterface $publishDate;
+    protected string $url;
     /** @var Field[] */
     protected $fieldList;
 

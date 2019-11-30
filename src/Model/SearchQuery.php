@@ -7,8 +7,7 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class SearchQuery
 {
-    /** @var string */
-    private $query;
+    private string $query;
 
     public function __construct(string $query)
     {

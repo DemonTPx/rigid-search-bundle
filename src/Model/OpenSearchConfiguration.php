@@ -7,14 +7,10 @@ namespace Demontpx\RigidSearchBundle\Model;
  */
 class OpenSearchConfiguration
 {
-    /** @var string */
-    private $shortName;
-    /** @var string */
-    private $description;
-    /** @var string */
-    private $tags;
-    /** @var string */
-    private $contact;
+    private string $shortName;
+    private string $description;
+    private string $tags;
+    private string $contact;
 
     public function __construct(string $shortName, string $description, string $tags, string $contact)
     {

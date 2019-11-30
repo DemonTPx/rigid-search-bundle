@@ -13,8 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ReindexCommand extends Command
 {
-    /** @var SearchManager */
-    private $manager;
+    private SearchManager $manager;
 
     public function __construct(SearchManager $manager)
     {

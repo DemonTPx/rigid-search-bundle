@@ -17,10 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class SearchController extends BaseController
 {
-    /** @var PaginatorInterface */
-    private $paginator;
-    /** @var OpenSearchDescriptionProvider */
-    private $openSearchDescriptionProvider;
+    private PaginatorInterface $paginator;
+    private OpenSearchDescriptionProvider $openSearchDescriptionProvider;
 
     public function __construct(PaginatorInterface $paginator, OpenSearchDescriptionProvider $openSearchDescriptionProvider)
     {
