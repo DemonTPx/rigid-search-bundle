@@ -50,7 +50,7 @@ class SearchController extends BaseController
 
         $pagination = $this->paginator->paginate(
             new SearchQuery($query),
-            $request->get('page', 1),
+            (int) $request->get('page', 1),
             10
         );
 
