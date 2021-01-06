@@ -36,7 +36,7 @@ class OrmIndex implements IndexInterface
         $ormDocument = OrmDocument::fromDocument($type, $id, $document);
 
         $this->entityManager->persist($ormDocument);
-        $this->entityManager->flush($ormDocument);
+        $this->entityManager->flush();
     }
 
     public function remove(string $type, int $id): void
